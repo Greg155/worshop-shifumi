@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: beige;
+    background-color: rgb(92, 92, 92);
 }
 
 .shifumi{
@@ -17,9 +17,21 @@ body{
 
 .score{
     display: flex;
-    justify-content: center;
-    background-color: red;
+    justify-content: space-around;
     width: 25%;
+    border: white;
+    border-style: groove;
+    color: white;
+}
+
+#reset-button{
+    
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    height: 5%;
+    font-weight: bold;
+    font-size: 40px;
 }
 
 .ia{
@@ -35,22 +47,26 @@ body{
     justify-content: space-between;
     background-color: green;
     width: 60%;
-    height: 150px;
+    height: 250px;
 }
 
 
 #pierre-user, #pierre-ia{
     display: flex;
     justify-content: center;
-    background-image: url('./assets/pierre.jpg');
+    /* source : https://www.flaticon.com/free-icon/cave-painting_925141?term=rock&page=1&position=3*/
+    background-image: url('./assets/rock.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    border: white;
+    border-style: groove;
 }
 
 #papier-user, #papier-ia{
     display: flex;
     justify-content: center;
-    background-image: url('./assets/papier.jpg');
+    /*source :  https://www.flaticon.com/free-icon/leaf_2917995?term=leaves&page=1&position=4 */
+    background-image: url('./assets/leaves.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -58,12 +74,14 @@ body{
 #ciseau-user, #ciseau-ia{
     display: flex;
     justify-content: center;
-    background-image: url('./assets/ciseau.jpg');
+    /* source : https://www.flaticon.com/free-icon/pruners_740824?term=secateur&page=1&position=6*/
+    background-image: url('./assets/scissors.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
-
 h3{
     font-weight: bold;
+    font-size: 30px;
+    
 }

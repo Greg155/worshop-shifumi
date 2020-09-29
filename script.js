@@ -3,6 +3,9 @@ console.log("BONJOUR ");
 let scoreUser = 0;
 let scoreIA = 0;
 
+let scoreTempUser =0;
+let scoreTempIa = 0;
+
 let shifumiUser;
 let shifumiIA;
 
@@ -16,8 +19,6 @@ const getRandomShifumi = () => {
     return shifumi[randomNumber];
 }
 
-
-
 const buttonPierre = document.querySelector("#pierre-user");
 console.log(buttonPierre);
 buttonPierre.addEventListener('click', ()=> {
@@ -25,7 +26,16 @@ buttonPierre.addEventListener('click', ()=> {
     console.log("user choose "+ shifumiUser);
     shifumiIA = getRandomShifumi();
     shifumiBattle(shifumiUser,shifumiIA);
-
+    scoreUser = document.querySelector(".score-user");
+    scoreUser.innerHTML = `${scoreTempUser}`; 
+    scoreIA = document.querySelector(".score-ia");
+    scoreIA.innerHTML = `${scoreTempIa}`; 
+    if(scoreTempUser === 3){
+        prompt("USER WIN !");
+    }
+    if(scoreTempIa === 3){
+        prompt("IA WIN !");
+    }
 });
 
 const buttonPapier = document.querySelector("#papier-user");
@@ -35,6 +45,16 @@ buttonPapier.addEventListener('click', ()=> {
     console.log("user choose "+ shifumiUser);
     shifumiIA =getRandomShifumi();
     shifumiBattle(shifumiUser,shifumiIA);
+    scoreUser = document.querySelector(".score-user");
+    scoreUser.innerHTML = `${scoreTempUser}`; 
+    scoreIA = document.querySelector(".score-ia");
+    scoreIA.innerHTML = `${scoreTempIa}`; 
+    if(scoreTempUser === 3){
+        prompt("USER WIN !");
+    }
+    if(scoreTempIa === 3){
+        prompt("IA WIN !");
+    }
 });
 
 const buttonCiseau = document.querySelector("#ciseau-user");
@@ -44,9 +64,28 @@ buttonCiseau.addEventListener('click', ()=> {
     console.log("user choose "+ shifumiUser);
     shifumiIA = getRandomShifumi();
     shifumiBattle(shifumiUser,shifumiIA);
+    scoreUser = document.querySelector(".score-user");
+    scoreUser.innerHTML = `${scoreTempUser}`; 
+    scoreIA = document.querySelector(".score-ia");
+    scoreIA.innerHTML = `${scoreTempIa}`;   
+    if(scoreTempUser === 3){
+        window.alert("USER WIN!");
+    }
+    if(scoreTempIa === 3){
+        window.alert("IA WIN!");
+    }  
 });
 
-
+const buttonReset = document.querySelector("#reset-button");
+console.log(buttonReset);
+buttonReset.addEventListener('click', () => {
+    scoreTempUser = 0;
+    scoreTempIa = 0;
+    scoreUser = document.querySelector(".score-user");
+    scoreUser.innerHTML = `${scoreTempUser}`; 
+    scoreIA = document.querySelector(".score-ia");
+    scoreIA.innerHTML = `${scoreTempIa}`;  
+});
 
 // SHi = pierre fu = papier mi = ciseau
 let shifumiBattle = (yourShifumi, enemyShifumi) => {
@@ -54,10 +93,10 @@ let shifumiBattle = (yourShifumi, enemyShifumi) => {
         case "Shi":
             if(enemyShifumi==="Mi"){
                 console.log("User win")
-                scoreUser++;
+                scoreTempUser++;
             }else if(enemyShifumi==="Fu"){
                 console.log("IA win")
-                scoreIA++;
+                scoreTempIa++;
             }else{
                 console.log("Match nul");
             }
@@ -65,10 +104,10 @@ let shifumiBattle = (yourShifumi, enemyShifumi) => {
         case "Fu":
             if(enemyShifumi==="Shi"){
                 console.log("User win")
-                scoreUser++;
+                scoreTempUser++;
             }else if(enemyShifumi==="Mi"){
                 console.log("IA win")
-                scoreIA++;
+                scoreTempIa++;
             }else{
                 console.log("Match nul");
             }
@@ -76,18 +115,13 @@ let shifumiBattle = (yourShifumi, enemyShifumi) => {
         case "Mi":
             if(enemyShifumi==="Fu"){
                 console.log("User win")
-                scoreUser++;
+                scoreTempUser++;
             }else if(enemyShifumi==="Shi"){
                 console.log("IA win")
-                scoreIA++;
+                scoreTempIa++;
             }else{
                 console.log("Match nul");
             }
             break;
     } 
 }
-
-console.log("before");
-shifumiBattle(shifumiUser,shifumiIA);
-console.log("after")
-;
