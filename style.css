@@ -25,7 +25,7 @@ body{
 }
 
 #reset-button{
-    
+
     display: flex;
     justify-content: center;
     width: 10%;
@@ -36,46 +36,46 @@ body{
 
 .ia{
     display: flex;
-    justify-content: space-between;
-    background-color: blue;
+    justify-content: center;
+    justify-content: space-around;
     width: 60%;
-    height: 150px;
+    height: 200px;
 }
 
 .user{
     display: flex;
-    justify-content: space-between;
-    background-color: green;
+    justify-content: space-around;
     width: 60%;
-    height: 250px;
+    height: 200px;
 }
 
+image{
+    height: 100px;
+    width: 50px;
+}
 
 #pierre-user, #pierre-ia{
     display: flex;
-    justify-content: center;
     /* source : https://www.flaticon.com/free-icon/cave-painting_925141?term=rock&page=1&position=3*/
-    background-image: url('./assets/rock.png');
+    background-image: url("./assets/rock.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 250px 250px;
     border: white;
     border-style: groove;
 }
 
 #papier-user, #papier-ia{
     display: flex;
-    justify-content: center;
     /*source :  https://www.flaticon.com/free-icon/leaf_2917995?term=leaves&page=1&position=4 */
-    background-image: url('./assets/leaves.png');
+    background-image: url("./assets/leaves.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 #ciseau-user, #ciseau-ia{
     display: flex;
-    justify-content: center;
     /* source : https://www.flaticon.com/free-icon/pruners_740824?term=secateur&page=1&position=6*/
-    background-image: url('./assets/scissors.png');
+    background-image: url("./assets/scissors.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -83,5 +83,4 @@ body{
 h3{
     font-weight: bold;
     font-size: 30px;
-    
 }
