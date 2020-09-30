@@ -1,13 +1,24 @@
 console.log("BONJOUR ");
 
 let scoreUser = 0;
+scoreUser = document.querySelector(".score-user");
 let scoreIA = 0;
+scoreIA = document.querySelector(".score-ia");
 
 let scoreTempUser =0;
 let scoreTempIa = 0;
 
+let userSelection;
+userSelection = document.querySelector("#UserSelect");
+let IaSelection;
+IaSelection = document.querySelector(`#IaSelect`);
+
 let shifumiUser;
 let shifumiIA;
+
+let iconeShiIa = document.querySelector("#pierre-ia");
+let iconeFuIa = document.querySelector("#papier-ia");
+let iconeMiIa = document.querySelector("#ciseau-ia");
 
 // shi pierre fu papier mi ciseau
 let shifumi = ["Shi","Fu","Mi"];
@@ -20,60 +31,33 @@ const getRandomShifumi = () => {
 }
 
 const buttonPierre = document.querySelector("#pierre-user");
-console.log(buttonPierre);
 buttonPierre.addEventListener('click', ()=> {
     shifumiUser = shifumi[0];
-    console.log("user choose "+ shifumiUser);
     shifumiIA = getRandomShifumi();
+    getSelection(shifumiUser,shifumiIA);
     shifumiBattle(shifumiUser,shifumiIA);
-    scoreUser = document.querySelector(".score-user");
-    scoreUser.innerHTML = `${scoreTempUser}`; 
-    scoreIA = document.querySelector(".score-ia");
-    scoreIA.innerHTML = `${scoreTempIa}`; 
-    if(scoreTempUser === 3){
-        prompt("USER WIN !");
-    }
-    if(scoreTempIa === 3){
-        prompt("IA WIN !");
-    }
+    updateScore();  
+    compareScore();
 });
 
 const buttonPapier = document.querySelector("#papier-user");
-console.log(buttonPapier);
 buttonPapier.addEventListener('click', ()=> {
     shifumiUser = shifumi[1];
-    console.log("user choose "+ shifumiUser);
-    shifumiIA =getRandomShifumi();
+    shifumiIA = getRandomShifumi();
+    getSelection(shifumiUser,shifumiIA);
     shifumiBattle(shifumiUser,shifumiIA);
-    scoreUser = document.querySelector(".score-user");
-    scoreUser.innerHTML = `${scoreTempUser}`; 
-    scoreIA = document.querySelector(".score-ia");
-    scoreIA.innerHTML = `${scoreTempIa}`; 
-    if(scoreTempUser === 3){
-        prompt("USER WIN !");
-    }
-    if(scoreTempIa === 3){
-        prompt("IA WIN !");
-    }
+    updateScore();  
+    compareScore();
 });
 
 const buttonCiseau = document.querySelector("#ciseau-user");
-console.log(buttonPierre);
 buttonCiseau.addEventListener('click', ()=> {
     shifumiUser = shifumi[2];
-    console.log("user choose "+ shifumiUser);
     shifumiIA = getRandomShifumi();
+    getSelection(shifumiUser,shifumiIA);
     shifumiBattle(shifumiUser,shifumiIA);
-    scoreUser = document.querySelector(".score-user");
-    scoreUser.innerHTML = `${scoreTempUser}`; 
-    scoreIA = document.querySelector(".score-ia");
-    scoreIA.innerHTML = `${scoreTempIa}`;   
-    if(scoreTempUser === 3){
-        window.alert("USER WIN!");
-    }
-    if(scoreTempIa === 3){
-        window.alert("IA WIN!");
-    }  
+    updateScore();  
+    compareScore();
 });
 
 const buttonReset = document.querySelector("#reset-button");
@@ -81,14 +65,20 @@ console.log(buttonReset);
 buttonReset.addEventListener('click', () => {
     scoreTempUser = 0;
     scoreTempIa = 0;
-    scoreUser = document.querySelector(".score-user");
-    scoreUser.innerHTML = `${scoreTempUser}`; 
-    scoreIA = document.querySelector(".score-ia");
-    scoreIA.innerHTML = `${scoreTempIa}`;  
+    scoreUser.innerHTML = `User ${scoreTempUser}`; 
+    scoreIA.innerHTML = `Ia ${scoreTempIa}`; 
+    userSelection.innerHTML = `You use : --- `;
+    IaSelection.innerHTML = `Ia use : ---`;
+    iconeShiIa.style.display ="none";
+    iconeFuIa.style.display ="none";
+    iconeMiIa.style.display ="none";
+
+
+
 });
 
 // SHi = pierre fu = papier mi = ciseau
-let shifumiBattle = (yourShifumi, enemyShifumi) => {
+const shifumiBattle = (yourShifumi, enemyShifumi) => {
     switch (yourShifumi){
         case "Shi":
             if(enemyShifumi==="Mi"){
@@ -124,4 +114,25 @@ let shifumiBattle = (yourShifumi, enemyShifumi) => {
             }
             break;
     } 
+}
+
+
+const getSelection = () => {
+    userSelection.innerHTML = `You use : ${shifumiUser} `;
+    console.log("helo");
+    IaSelection.innerHTML = `Ia use : ${shifumiIA}`;
+}
+
+const updateScore = () =>{
+    scoreUser.innerHTML = `User ${scoreTempUser}`; 
+    scoreIA.innerHTML = `Ia ${scoreTempIa}`;  
+}
+
+const compareScore = () => {
+    if(scoreTempUser === 3){
+        prompt("USER WIN !");
+    }
+    if(scoreTempIa === 3){
+        prompt("IA WIN !");
+    }
 }
